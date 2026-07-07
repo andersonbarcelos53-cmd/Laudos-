@@ -4,9 +4,7 @@ import path from "path";
 import fs from "fs";
 import os from "os";
 import { randomUUID } from "crypto";
-import { db } from "@workspace/db";
-import { certificatesTable } from "@workspace/db";
-import { eq, sql, inArray } from "drizzle-orm";
+import { certificatesTable, db, eq, inArray, sql } from "@workspace/db";
 import { GetCertificatesBySapParams, DeleteCertificateParams, BulkDeleteCertificatesBody } from "@workspace/api-zod";
 import { deletePdf, readPdf, savePdfFile } from "../lib/pdfStorage";
 

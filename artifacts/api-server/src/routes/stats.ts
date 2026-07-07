@@ -1,7 +1,5 @@
 import { Router } from "express";
-import { db } from "@workspace/db";
-import { certificatesTable, palletQuantitiesTable, historyTable } from "@workspace/db";
-import { sql, desc } from "drizzle-orm";
+import { certificatesTable, db, desc, historyTable, palletQuantitiesTable, sql } from "@workspace/db";
 
 const router = Router();
 

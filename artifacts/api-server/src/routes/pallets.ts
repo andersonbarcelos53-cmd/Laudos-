@@ -3,9 +3,7 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import os from "os";
-import { db } from "@workspace/db";
-import { palletQuantitiesTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { db, eq, palletQuantitiesTable } from "@workspace/db";
 import {
   GetPalletQuantityParams,
   DeletePalletQuantityParams,

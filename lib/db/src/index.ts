@@ -13,4 +13,5 @@ if (!process.env.DATABASE_URL) {
 export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 export const db = drizzle(pool, { schema });
 
+export { desc, eq, inArray, sql } from "drizzle-orm";
 export * from "./schema";

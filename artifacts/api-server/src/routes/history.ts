@@ -1,8 +1,6 @@
 import { Router } from "express";
 import { randomUUID } from "crypto";
-import { db } from "@workspace/db";
-import { certificatesTable, historyTable } from "@workspace/db";
-import { eq, desc, inArray } from "drizzle-orm";
+import { certificatesTable, db, desc, eq, historyTable, inArray } from "@workspace/db";
 import {
   FillCertificateBody,
   DownloadGeneratedPdfParams,

@@ -2,9 +2,7 @@ import fs from "fs";
 import path from "path";
 import app from "./app";
 import { logger } from "./lib/logger";
-import { db } from "@workspace/db";
-import { certificatesTable, historyTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { certificatesTable, db, eq, historyTable } from "@workspace/db";
 import { objectStorageClient } from "./lib/objectStorage";
 
 function getBucket() {
