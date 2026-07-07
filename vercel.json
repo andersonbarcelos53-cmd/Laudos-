@@ -1,20 +1,33 @@
 {
+  "version": 2,
   "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm --filter @workspace/verallia-cert run build",
-  "outputDirectory": "artifacts/verallia-cert/dist/public",
-  "functions": {
-    "api/[...path].ts": {
-      "maxDuration": 60
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "src": "api/[...path].ts",
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 60
+      }
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "artifacts/verallia-cert/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/public"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/[...path].ts"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
