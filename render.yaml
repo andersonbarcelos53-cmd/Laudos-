@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: laudos-verallia
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --no-frozen-lockfile && pnpm run render:build
+    startCommand: pnpm --filter @workspace/api-server run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BASE_PATH
+        value: /
+      - key: SUPABASE_STORAGE_BUCKET
+        value: certificados
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
